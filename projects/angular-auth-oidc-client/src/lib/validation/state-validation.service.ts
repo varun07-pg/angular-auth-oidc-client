@@ -52,6 +52,11 @@ export class StateValidationService {
       configuration
     );
 
+    console.log(
+      'VARUN@1',
+      authStateControl,
+      localStorage.getItem('storageSilentRenewRunning')
+    );
     if (
       !this.tokenValidationService.validateStateFromHashCallback(
         callbackContext.authResult?.state,

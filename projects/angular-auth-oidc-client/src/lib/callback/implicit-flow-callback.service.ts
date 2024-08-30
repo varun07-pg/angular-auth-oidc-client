@@ -30,6 +30,8 @@ export class ImplicitFlowCallbackService {
     const postLoginRoute = config.postLoginRoute ?? '';
     const unauthorizedRoute = config.unauthorizedRoute ?? '';
 
+    console.log('VARUN@4', 'authenticatedImplicitFlowCallback');
+
     return this.flowsService
       .processImplicitFlowCallback(config, allConfigs, hash)
       .pipe(

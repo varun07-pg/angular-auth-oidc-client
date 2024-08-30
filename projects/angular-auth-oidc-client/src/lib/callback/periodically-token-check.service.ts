@@ -134,6 +134,7 @@ export class PeriodicallyTokenCheckService {
 
     return refreshEvent$.pipe(
       catchError((error) => {
+        console.log('VARUN@6', 'silent renew failed!', error);
         this.loggerService.logError(config, 'silent renew failed!', error);
         this.publicEventsService.fireEvent(EventTypes.SilentRenewFailed, error);
         this.flowsDataService.resetSilentRenewRunning(config);
@@ -198,6 +199,9 @@ export class PeriodicallyTokenCheckService {
               ...customParamsRefreshTokenRequest,
               ...customParamsRefresh,
             };
+
+            this.flowsDataService.isSilentRenewRunning(config);
+            console.log('VARUN@5', 'refreshSessionWithRefreshTokens');
 
             // Refresh Session using Refresh tokens
             return this.refreshSessionRefreshTokenService.refreshSessionWithRefreshTokens(

@@ -26,6 +26,8 @@ export class RefreshSessionRefreshTokenService {
     this.loggerService.logDebug(config, 'BEGIN refresh session Authorize');
     let refreshTokenFailed = false;
 
+    console.log('VARUN@3', 'refreshSessionWithRefreshTokens');
+
     return this.flowsService
       .processRefreshToken(config, allConfigs, customParamsRefresh)
       .pipe(

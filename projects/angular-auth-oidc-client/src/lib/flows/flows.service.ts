@@ -44,6 +44,8 @@ export class FlowsService {
     config: OpenIdConfiguration,
     allConfigs: OpenIdConfiguration[]
   ): Observable<CallbackContext> {
+    console.log('VARUN@2', 'processCodeFlowCallback');
+
     return this.codeFlowCallbackHandlerService
       .codeFlowCallback(urlToCheck, config)
       .pipe(
@@ -82,6 +84,8 @@ export class FlowsService {
     config: OpenIdConfiguration,
     allConfigs: OpenIdConfiguration[]
   ): Observable<CallbackContext> {
+    console.log('VARUN@2', 'processSilentRenewCodeFlowCallback');
+
     return this.codeFlowCallbackHandlerService
       .codeFlowCodeRequest(firstContext, config)
       .pipe(
@@ -114,6 +118,8 @@ export class FlowsService {
     allConfigs: OpenIdConfiguration[],
     hash?: string
   ): Observable<CallbackContext> {
+    console.log('VARUN@2', 'processImplicitFlowCallback');
+
     return this.implicitFlowCallbackHandlerService
       .implicitFlowCallback(config, allConfigs, hash)
       .pipe(
@@ -146,6 +152,8 @@ export class FlowsService {
     allConfigs: OpenIdConfiguration[],
     customParamsRefresh?: { [key: string]: string | number | boolean }
   ): Observable<CallbackContext> {
+    console.log('VARUN@2', 'processRefreshToken');
+
     return this.refreshSessionCallbackHandlerService
       .refreshSessionWithRefreshTokens(config)
       .pipe(
